@@ -71,10 +71,14 @@
               "browserTarget": "pokedex:build:production"
             },
             "development": {
-              "browserTarget": "pokedex:build:development"
+              "browserTarget": "pokedex:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
