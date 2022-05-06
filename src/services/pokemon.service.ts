@@ -10,7 +10,10 @@ export class PokemonService {
   constructor( private http: HttpClient ) { }
   private baseUrl: string = "/api"
   getPokemon(): Observable<any> {
-    console.log("getting pokemon")
-    return this.http.get<any>(`${this.baseUrl}/pokemon/psyduck`)
+    return this.http.get<any>(`${this.baseUrl}/pokemon/psyduck/`)
+  }
+  /*code below is an attempted function to add images from api*/
+  getArtwork(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/pokemon/psyduck/`)
   }
 }
