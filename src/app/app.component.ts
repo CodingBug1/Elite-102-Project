@@ -9,17 +9,20 @@ import { PokemonService } from 'src/services/pokemon.service'
 export class AppComponent implements OnInit {
   title = 'PokeDEX';
   artwork: any = {}
-  pokemon: any = {}
+  pokemon: any[] = []
   constructor(
     private pokemonService: PokemonService
     ) {}  
   ngOnInit(): void {
-    this.pokemonService.getPokemon().subscribe((pokemon) => { 
-      this.pokemon = pokemon
-    } );
-    /*code below is attempted function using service to show images from api */
-    this.pokemonService.getArtwork().subscribe((artwork): void => {
-      this.artwork = artwork
+    this.pokemonService.getPokemon().subscribe((data) => { 
+      for (const result of data.results) {
+        this.pokemonService.getArtwork(result.url).subscribe((details): void => {
+          this.pokemon.push({
+            name: result.name,
+            image: details.sprites.other['official-artwork'].front_default
+          })
+        } );        
+      }
     } );
   }
 }
