@@ -303,15 +303,12 @@
   }
 </style>
 
-<div>
-  <div *ngFor="let result of pokemon" class="content" role="main">
-    <div class="card-container">
-      <a class="card" href="https://bulbapedia.bulbagarden.net/wiki/Psyduck_(Pok%C3%A9mon)">
-        <p style="color:black"> {{result.name}} </p>
-        <img width="80px" height="100px" src={{artwork.sprites.other.offical-artwork}}>
-      </a>
-    </div>
-  </div>
+<div *ngFor="let result of pokemon.results" class="content" role="main">
+  <div class="card-container">
+    <a class="card" href="https://bulbapedia.bulbagarden.net/wiki/Psyduck_(Pok%C3%A9mon)">
+      <p style="color:black"> {{result.name}} </p>
+      <!-- <img width="80px" height="100px" src= {{artwork.sprites.other.offical-artwork}} > -->
+    </a>
 </div>
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
